@@ -2,7 +2,6 @@ let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
 
-// Ladda frågor från JSON
 async function loadQuestions() {
     try {
         const response = await fetch('questions.json');
@@ -27,7 +26,6 @@ function showQuestion() {
 
     const currentQuestion = questions[currentQuestionIndex];
 
-    // Uppdatera progress-bar tills sista frågan är besvarad
     const progressWidth = ((currentQuestionIndex / questions.length) * 100) + "%";
     progressBar.style.width = progressWidth;
 
@@ -45,13 +43,11 @@ function showQuestion() {
 
 
 
-// Kontrollera svaret
 function checkAnswer(selectedIndex, button) {
     const feedbackElement = document.querySelector('.feedback');
     const currentQuestion = questions[currentQuestionIndex];
     const optionsButtons = document.querySelectorAll('.options button');
 
-    // Inaktivera knappar efter att användaren svarat
     optionsButtons.forEach(btn => btn.disabled = true);
 
     if (selectedIndex === currentQuestion.correct) {
@@ -64,12 +60,11 @@ function checkAnswer(selectedIndex, button) {
         feedbackElement.textContent = 'Fel svar.';
         feedbackElement.style.color = 'red';
 
-        // Visa det rätta svaret
         optionsButtons[currentQuestion.correct].classList.add('correct');
     }
 
     currentQuestionIndex++;
-    setTimeout(showQuestion, 1500); // Vänta innan nästa fråga visas
+    setTimeout(showQuestion, 1500);
 }
 
 function showSummary() {
@@ -78,7 +73,6 @@ function showSummary() {
     const summaryText = document.getElementById('summary-text');
     const progressBar = document.querySelector('.progress');
 
-    // Sätt progress-baren till 100%
     progressBar.style.width = "100%";
 
     quizContainer.style.display = 'none';
@@ -89,40 +83,31 @@ function showSummary() {
 }
 
 
-// Starta om quizet
 function restartQuiz() {
-    // Visa en "startar om"-skärm med animation
     showRestartingScreen();
 
-    // Vänta lite innan quizet återställs
     setTimeout(() => {
-        // Återställ variabler
         currentQuestionIndex = 0;
         score = 0;
 
-        // Återställ UI-element
         document.querySelector('.progress').style.width = '0%';
         document.querySelector('.summary').style.display = 'none';
         document.getElementById('quiz').style.display = 'block';
 
-        // Göm "startar om"-skärmen
         hideRestartingScreen();
 
-        // Starta quizet från början
         showQuestion();
-    }, 2000); // Väntar 2 sekunder innan omstart
+    }, 2000);
 }
 
-// Visa "startar om"-skärmen
 function showRestartingScreen() {
     let restartingScreen = document.createElement('div');
     restartingScreen.classList.add('restarting-screen');
     restartingScreen.textContent = 'Startar om...';
     document.body.appendChild(restartingScreen);
-    setTimeout(() => (restartingScreen.style.display = 'flex'), 10); // Visa med kort delay för smidig övergång
+    setTimeout(() => (restartingScreen.style.display = 'flex'), 10);
 }
 
-// Göm "startar om"-skärmen
 function hideRestartingScreen() {
     const restartingScreen = document.querySelector('.restarting-screen');
     if (restartingScreen) {
@@ -131,5 +116,4 @@ function hideRestartingScreen() {
     }
 }
 
-// Starta spelet
 loadQuestions();
