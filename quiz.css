@@ -1,0 +1,124 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quiz-container {
+    width: 90%;
+    max-width: 600px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background: #4caf50;
+    transition: width 0.3s ease;
+}
+
+.question {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.options button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.options button:hover {
+    background: #f0f0f0;
+}
+
+.options button.correct {
+    background: #4caf50;
+    color: white;
+}
+
+.options button.incorrect {
+    background: #f44336;
+    color: white;
+}
+
+.feedback {
+    font-size: 1.2em;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.summary {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #333;
+}
+
+.restart-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background: #4caf50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+.restart-btn:active {
+    background: #388e3c;
+}
+
+.restarting-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
