@@ -1,0 +1,27 @@
+[
+    {
+        "question": "Vad är huvudstaden i Sverige?",
+        "options": ["Göteborg", "Stockholm", "Malmö", "Uppsala"],
+        "correct": 1
+    },
+    {
+        "question": "Vilken planet är känd som den röda planeten?",
+        "options": ["Jorden", "Mars", "Venus", "Jupiter"],
+        "correct": 1
+    },
+    {
+        "question": "Vad är 5 + 3?",
+        "options": ["5", "7", "8", "10"],
+        "correct": 2
+    },
+    {
+        "question": "Vilket är det största havet i världen?",
+        "options": ["Atlanten", "Stilla havet", "Indiska oceanen", "Norra ishavet"],
+        "correct": 1
+    },
+    {
+        "question": "Vad är kvadratroten av 16?",
+        "options": ["2", "3", "4", "5"],
+        "correct": 2
+    }
+]
